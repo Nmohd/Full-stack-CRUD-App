@@ -1,0 +1,35 @@
+.Main-Table {
+  margin: 0px 500px;
+}
+
+table {
+  border: 2px solid forestgreen;
+  width: 800px;
+  height: 100px;
+}
+
+th {
+  border-bottom: 1px solid black;
+}
+
+td {
+  text-align: center;
+}
+
+.Main-Form {
+  margin: 100px 500px;
+}
+
+.form-control {
+  padding: 8px 0px 5px 0px;
+}
+
+.form-field {
+  padding: 8px 0px 5px 5px;
+  margin-left: 10px;
+}
+
+.add-user-Btn {
+  margin-left: 700px;
+  margin-bottom: 10px;
+}
