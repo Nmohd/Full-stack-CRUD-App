@@ -18,10 +18,12 @@ const Table = () => {
   };
 
   let deleteHandler = (i) => {
-    alert("Are you sure you want to delete");
+    alert("Are you sure you want to delete?");
     let deleteUserId = allUsers.allUsers[i]._id;
     dispatch(deleteUser(deleteUserId));
     dispatch(fetchAllUsers());
+    window.location.reload();
+
   };
 
   let viewHandler = (i) => {

@@ -6,6 +6,7 @@ import { addUser } from "../services/fetchApi";
 import { updateUser } from "../services/updateUser";
 
 const Form = () => {
+
   let navigate = useNavigate();
   const dispatch = useDispatch();
   const [showForm, setShowForm] = useState(true);
@@ -55,16 +56,20 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addUser(userData));
-    alert("done");
+    alert("User added succefully");
+    navigate("/");
+
   };
 
   const handleUpdate = (e) => {
     e.preventDefault();
     dispatch(updateUser(viewUserId, JSON.stringify(uUserData)));
-    alert("done");
+    alert("User details updated ");
+    navigate("/");
   };
 
   return (
+   
     <div>
       {showForm ? (
         <form className="Main-Form" onSubmit={(e) => handleSubmit(e)}>
@@ -164,7 +169,10 @@ const Form = () => {
           </div>
         </form>
       )}
+
     </div>
+    
+    
   );
 };
 

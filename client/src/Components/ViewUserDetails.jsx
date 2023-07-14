@@ -2,8 +2,12 @@ import React from "react";
 import { fetchSingleUser, getSingleUser } from "../services/fetchSingleUser";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect,  } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const ViewUserDetails = () => {
+  let navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const Id = localStorage.getItem("id");
@@ -14,7 +18,10 @@ const ViewUserDetails = () => {
 
   const singleUser = useSelector(getSingleUser);
 
-  let someUser = singleUser.singleUser.name;
+  const onClickHandler =()=>{
+    navigate("/");
+
+  }
 
   return (
     <>
@@ -39,6 +46,9 @@ const ViewUserDetails = () => {
             </tr>
           </table>
         }
+        <button className="Home-Btn" onClick={() => onClickHandler()}>
+          Back Home
+        </button>
       </div>
     </>
   );
