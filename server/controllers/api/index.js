@@ -31,7 +31,7 @@ router.get("/users", async (req, res) => {
     const filter = {};
     const allusers = await userModel.find(filter);
 
-    console.log(allusers);
+  
 
     res.status(200).json({ success: "Okay", data: allusers });
   } catch (error) {
@@ -50,8 +50,7 @@ Body : name, email,phone
 router.post("/users", async (req, res) => {
   try {
     let { name, email, phone } = req.body;
-    // console.log(req.body);
-
+    
     const Gotemail = await userModel.findOne({ email });
     if (Gotemail) {
       return res.status(409).json({ error: "Email already exists " });
@@ -60,8 +59,7 @@ router.post("/users", async (req, res) => {
     let userData = req.body;
 
     let allUsers = new userModel(userData);
-    console.log(allUsers);
-    console.log("hello67");
+
 
     await allUsers.save();
 
@@ -83,7 +81,7 @@ router.get("/users/:userId", async (req, res) => {
   try {
     let singleUser = await userModel.findOne({ _id: req.params.userId });
     if (!singleUser) {
-      console.log("user not found");
+    
       res.status(404).json({ error: "User Not Found" });
     }
 
